@@ -611,6 +611,12 @@ MonoBehaviour:
   m_StartAmount: 2
   m_EndAmount: -2
   m_PlayerAnimator: {fileID: 737759850}
+  m_Color1: {r: 0, g: 1, b: 0, a: 1}
+  m_Color2: {r: 0.4575472, g: 1, b: 0.4575472, a: 1}
+  m_Color3: {r: 1, g: 1, b: 1, a: 1}
+  m_DissolveColor1: {r: 1, g: 0, b: 0, a: 1}
+  m_DissolveColor2: {r: 1, g: 0.4481132, b: 0.4481132, a: 1}
+  m_DissolveColor3: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1661070025
 Transform:
   m_ObjectHideFlags: 0

@@ -57,6 +57,9 @@ Material:
     - _Mode: 0
     - _Surface: 0
     - _ZWrite: 1
-    m_Colors: []
+    m_Colors:
+    - _Color_End: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+    - _Color_Mid: {r: 0.5235849, g: 1, b: 0.5235849, a: 1}
+    - _Color_Start: {r: 0, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
