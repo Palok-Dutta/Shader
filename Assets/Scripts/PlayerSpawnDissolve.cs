@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
 using PrimeTween;
+using UnityEngine.VFX;
 
 public class PlayerSpawnDissolve : MonoBehaviour
 {
+    [SerializeField] private VisualEffect m_VfxGraph;
     [SerializeField] private Renderer m_PlayerRenderer;
     [SerializeField] private float m_Duration;
     [SerializeField] private float m_StartAmount;
@@ -29,6 +31,7 @@ public class PlayerSpawnDissolve : MonoBehaviour
     private void Awake()
     {
         _mats = m_PlayerRenderer.materials;
+        m_VfxGraph.Stop();
     }
 
     private void OnEnable()
@@ -46,8 +49,12 @@ public class PlayerSpawnDissolve : MonoBehaviour
             m_PlayerAnimator.SetTrigger("Run");
         }
 
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
+            if (m_VfxGraph != null)
+            {
+                m_VfxGraph.Play();
+            }
             SetColor(m_DissolveColor1, m_DissolveColor2, m_DissolveColor3);
             Tween.Custom(-m_StartAmount, -m_EndAmount, m_Duration, onValueChange: SetSpawn, ease: Ease.OutSine);
         }
@@ -58,6 +65,10 @@ public class PlayerSpawnDissolve : MonoBehaviour
         foreach (var mat in _mats)
         {
             mat.SetFloat(_dissolveThreshold, value);
+        }
+        if (m_VfxGraph != null)
+        {
+            m_VfxGraph.SetFloat("DissolveThreshold", value);
         }
     }
 
